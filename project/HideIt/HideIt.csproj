@@ -1,0 +1,375 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C07CAC5B-35A9-4B3C-8033-7E523509B746}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HideIt</RootNamespace>
+    <AssemblyName>HideIt</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ApplicationIcon>3d_256.ico</ApplicationIcon>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DirectShowLib-2005, Version=2.0.0.0, Culture=neutral, PublicKeyToken=67e7b740cdfc2d3f, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>resources\asm\DirectShowLib-2005.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppUtil.cs" />
+    <Compile Include="AudioPlayer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AudioPlayer.Designer.cs">
+      <DependentUpon>AudioPlayer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Audio\PlayerWaveStream.cs" />
+    <Compile Include="Audio\WaveNative.cs" />
+    <Compile Include="Audio\WaveOut.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Audio\WaveUtility.cs" />
+    <Compile Include="CompareVideo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CompareVideo.Designer.cs">
+      <DependentUpon>CompareVideo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AviDecompressor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AviDecompressor.Designer.cs">
+      <DependentUpon>AviDecompressor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Encryption\RC4.cs" />
+    <Compile Include="ZipUnzip\UnZipper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZipUnzip\UnZipper.Designer.cs">
+      <DependentUpon>UnZipper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZipUnzip\Zipper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ZipUnzip\Zipper.Designer.cs">
+      <DependentUpon>Zipper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DB\DbConnectionStr.cs" />
+    <Compile Include="HideIt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HideIt.Designer.cs">
+      <DependentUpon>HideIt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Live\Devices.cs" />
+    <Compile Include="Live\SelectDevice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Live\SelectDevice.Designer.cs">
+      <DependentUpon>SelectDevice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <EmbeddedResource Include="AudioPlayer.resx">
+      <DependentUpon>AudioPlayer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CompareVideo.resx">
+      <DependentUpon>CompareVideo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AviDecompressor.resx">
+      <DependentUpon>AviDecompressor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZipUnzip\UnZipper.resx">
+      <DependentUpon>UnZipper.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ZipUnzip\Zipper.resx">
+      <DependentUpon>Zipper.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HideIt.resx">
+      <DependentUpon>HideIt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Live\SelectDevice.resx">
+      <DependentUpon>SelectDevice.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stego\SummaryControl\AviSummary.resx">
+      <DependentUpon>AviSummary.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stego\SummaryControl\BitmapSummary.resx">
+      <DependentUpon>BitmapSummary.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stego\SummaryControl\WatermarkSummary.resx">
+      <DependentUpon>WatermarkSummary.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stego\SummaryControl\WaveSummary.resx">
+      <DependentUpon>WaveSummary.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transfer\Options.resx">
+      <DependentUpon>Options.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transfer\ReceiveFile.resx">
+      <DependentUpon>ReceiveFile.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transfer\SendFile.resx">
+      <DependentUpon>SendFile.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VideoControl.resx">
+      <DependentUpon>VideoControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Stego\BinaryMessage.cs" />
+    <Compile Include="Stego\HostObject\Avi.cs" />
+    <Compile Include="Stego\HostObject\Bitmap.cs" />
+    <Compile Include="Stego\HostObject\Wave.cs" />
+    <Compile Include="Stego\StegoProcessor\BitmapStegoProcess.cs" />
+    <Compile Include="Stego\HostObject\BufferedStream.cs" />
+    <Compile Include="Stego\StegoProcessor\AviStegoProcess.cs" />
+    <Compile Include="Stego\HostObject\IHostObject.cs" />
+    <Compile Include="Stego\HostMediaType.cs" />
+    <Compile Include="Stego\Message.cs" />
+    <Compile Include="Stego\StegoProcessor\CaptureStegoProcess.cs" />
+    <Compile Include="Stego\StegoProcessor\WatermarkingStegoProcessor.cs" />
+    <Compile Include="Stego\StegoProcessor\WaveStegoProcessor.cs" />
+    <Compile Include="Stego\SummaryControl\AviSummary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Stego\SummaryControl\AviSummary.Designer.cs">
+      <DependentUpon>AviSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stego\SummaryControl\BitmapSummary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Stego\SummaryControl\BitmapSummary.Designer.cs">
+      <DependentUpon>BitmapSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stego\SummaryControl\Summary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Stego\SummaryControl\WatermarkSummary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Stego\SummaryControl\WatermarkSummary.Designer.cs">
+      <DependentUpon>WatermarkSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stego\SummaryControl\WaveSummary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Stego\SummaryControl\WaveSummary.Designer.cs">
+      <DependentUpon>WaveSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tabs\LiveTab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transfer\Options.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transfer\Options.Designer.cs">
+      <DependentUpon>Options.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stego\StegoProcessor\StegoProcessorBase.cs" />
+    <Compile Include="Stego\Substitution.cs" />
+    <Compile Include="Transfer\FileSender.cs" />
+    <Compile Include="Transfer\HandshakeResponse.cs" />
+    <Compile Include="Transfer\ReceiveFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transfer\ReceiveFile.Designer.cs">
+      <DependentUpon>ReceiveFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transfer\SendFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transfer\SendFile.Designer.cs">
+      <DependentUpon>SendFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transfer\FileReceiver.cs" />
+    <Compile Include="Transfer\HandshakeData.cs" />
+    <Compile Include="VideoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VideoControl.Designer.cs">
+      <DependentUpon>VideoControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZipUnzip\ZipStorer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="3d_256.ico" />
+    <None Include="resources\animated\Grammaphone_with_notes.gif" />
+    <None Include="resources\animated\Equalizer.gif" />
+    <None Include="resources\controls\zip_orb.png" />
+    <None Include="resources\controls\refresh.png" />
+    <None Include="resources\controls\option.png" />
+    <None Include="resources\controls\save_file.png" />
+    <None Include="resources\controls\Apply1.gif" />
+    <None Include="resources\controls\compress.png" />
+    <None Include="resources\controls\wav_256.png" />
+    <None Include="resources\controls\avi_256.png" />
+    <None Include="resources\controls\kmix.png" />
+    <None Include="resources\controls\asongs.png" />
+    <None Include="resources\controls\CMYK_256x256.png" />
+    <None Include="resources\controls\Help.png" />
+    <None Include="resources\controls\media_player.png" />
+    <None Include="resources\controls\transfer_document.png" />
+    <None Include="resources\controls\page_refresh.gif" />
+    <None Include="resources\controls\WindowsMediaPlayer.png" />
+    <None Include="resources\controls\unzip.png" />
+    <None Include="resources\controls\file-001.png" />
+    <None Include="resources\controls\vista-Document %281%29.png" />
+    <None Include="resources\controls\Options.png" />
+    <None Include="resources\controls\Connected.png" />
+    <None Include="resources\controls\box_upload_48.png" />
+    <None Include="resources\controls\box_download_48.png" />
+    <None Include="resources\controls\18.png" />
+    <None Include="resources\controls\controls\save_16.png" />
+    <None Include="resources\controls\Cancel.png" />
+    <None Include="resources\controls\Apply.png" />
+    <None Include="resources\controls\connect.png" />
+    <None Include="resources\controls\New.png" />
+    <None Include="resources\controls\Open.png" />
+    <None Include="resources\controls\Close.png" />
+    <None Include="resources\controls\AviIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
